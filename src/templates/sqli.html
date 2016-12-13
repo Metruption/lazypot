@@ -1,0 +1,31 @@
+<html>
+<head>
+
+<title>Aaron's Vulnerable Website</title>
+
+</head>
+<body>
+
+<h1>SQLi Honeypot Demo!</h1>
+<hl />
+<p>Here's a form where you can try to login to my website. I hope nobody can login as the 'admin' account!</p>
+<script>
+function login(){
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	var newloc = "".concat("/login/username=\"", username, "\"+password=\"", password,"\"");
+	window.location = newloc
+}
+</script>
+
+Username:<br>
+<input type="text" id="username" value="">
+<br>
+Password:<br>
+<input type="text" id="password" value="">
+<br><br>
+<input type="submit" value="Login" onclick="login()">
+
+<a href="/index">Back to the homepage</a>
+</body>
+</html>
